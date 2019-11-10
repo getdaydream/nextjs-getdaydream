@@ -19,6 +19,7 @@ class MyDocument extends Document<{ stylesheets: Sheet[] }> {
     const stylesheets = styletron.getStylesheets() || [];
     return { ...page, stylesheets };
   }
+
   render() {
     return (
       <Html>
@@ -32,6 +33,11 @@ class MyDocument extends Document<{ stylesheets: Sheet[] }> {
               key={i}
             />
           ))}
+          <style>{`
+            body {
+              margin: 0;
+            }
+          `}</style>
         </Head>
         <body>
           <Main />

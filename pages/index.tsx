@@ -1,40 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Head from 'next/head';
-import { Button } from 'baseui/button';
-import { Navigation } from 'baseui/side-navigation';
-import { useState } from 'react';
+import { NextPage } from 'next';
+import Header from '../containers/Header';
 
-const Home = () => {
-  const [activeItemId, setActiveItemId] = useState('#dark');
-
+const Home: NextPage = () => {
   return (
-    <div>
+    <Fragment>
       <Head>
         <title>Home</title>
       </Head>
-
-      <div>
-        <Button>Hello</Button>
-        <Navigation
-          items={[
-            {
-              title: 'Colors',
-              itemId: '#colors',
-              subNav: [
-                { title: 'Primary', itemId: '#primary' },
-                {
-                  title: 'Shades',
-                  itemId: '#shades',
-                  subNav: [{ title: 'Dark', itemId: '#dark' }],
-                },
-              ],
-            },
-          ]}
-          activeItemId={activeItemId}
-          onChange={({ item }) => setActiveItemId(item.itemId)}
-        />
-      </div>
-    </div>
+      <Header></Header>
+    </Fragment>
   );
 };
 
